@@ -6,12 +6,16 @@ import { db } from "../firebase";
 
 export const financeContext = createContext({
   Income: [],
+  Expenses:[],
   addIncomeItems: async () => {},
   removeIncomeItem: async () => {},
+  addExpensesItems:async()=>{}
 });
 
 export default function FinanceContextProvider({ children }) {
   const [Income ,setIncome]=useState([])
+  const [expenses ,setExpenses]=useState([])
+
   const addIncomeItems = async (newIncome) => {
     const collectionRef = collection(db, "Income");
     try {
@@ -43,6 +47,14 @@ export default function FinanceContextProvider({ children }) {
   };
 
   const values = { Income, addIncomeItems, removeIncomeItem };
+
+
+// Add expenses data 
+const AddExpensesItem =async ({newExpenses})=>{
+  const collectionRef =collection(db ,"Expenses")
+  const ExpensesDoc = addDoc(collectionRef,newExpenses)
+}
+
 
   // fetching data from database
 
