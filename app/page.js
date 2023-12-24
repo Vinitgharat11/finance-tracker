@@ -1,13 +1,28 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import TransactionHistory from "./components/transactionHistory/TransactionHistory";
 import AddIncomeModel from "./components/modal/modals/addIncomeModals";
 import AddExpensesModal from "./components/modal/modals/addExpensesModal";
+import { financeContext } from "./libs/store/financeContext";
+import Statastics from "./components/statastics";
 
 export default function Home() {
   const [IncomeModalIsOpen, setIncomeModalIsOpen] = useState(false);
   const [expenseModalShow, setExpenseModalShow] = useState(false);
+  const [balance , setBalance]= useState(0)
+const {Income,Expenses}= useContext(financeContext)
+
+useEffect(() => {
+  const totalIncome = Income.reduce((acc, incomeItem) => acc + incomeItem.amount, 0);
+  const totalExpenses = Expenses.reduce((acc, expenseItem) => acc + expenseItem.amount, 0);
+
+  setBalance(totalIncome - totalExpenses);
+}, [Income, Expenses]);
+
+console.log(balance)
+
+
 
   return (
     <>
@@ -25,7 +40,7 @@ export default function Home() {
        "
         >
           <p className="text-xl">Total Balance</p>
-          <p className="text-xl">$30000</p>
+          <p className="text-xl">{balance}</p>
         </div>
         <div className="flex items-center justify-center gap-5">
           <button
@@ -35,13 +50,19 @@ export default function Home() {
           >
             <p className="btn btn-primary">+ income</p>
           </button>
-          <button  onClick={() => {
+          <button
+            onClick={() => {
               setExpenseModalShow(true);
-            }}>
+            }}
+          >
             <p className="btn btn-primary">+ expenses</p>
           </button>
         </div>
       </header>
+      {/* stats */}
+      <div className="">
+        <Statastics/>
+      </div>
       {/* transaction History */}
       <div className="">
         <TransactionHistory />

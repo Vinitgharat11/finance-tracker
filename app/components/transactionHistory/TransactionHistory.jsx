@@ -7,7 +7,11 @@ import { useContext } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 const TransactionHistory = () => {
-  const { Income } = useContext(financeContext);
+  const { Income ,Expenses } = useContext(financeContext);
+
+const allData = [...Income , ...Expenses]
+console.log(allData)
+
   return (
     <>
       <div className="container mx-auto max-w-xl ">
@@ -15,10 +19,10 @@ const TransactionHistory = () => {
           <p>Transaction History</p>
         </div>
         <section className=" data h-40 overflow-x-hidden">
-          {Income.map((data) => (
+          {allData.map((data) => (
             <div
-              className="flex items-center justify-between px-5 py-2 my-3 bg-slate-700/75 rounded-lg mx-2"
-              key={data.description}
+              className={`flex items-center justify-between px-5 py-2 my-3 bg-slate-700/75 rounded-lg mx-2 ${data.category === "Income" ? "bg-green-600" : 'bg-red-600'} `}
+              key={data.id}
             >
               <p>{data.description}</p>
               <div className="flex items-center gap-5">

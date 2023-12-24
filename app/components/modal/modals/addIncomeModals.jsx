@@ -16,9 +16,11 @@ const AddIncomeModel = ({ show, onClose }) => {
     e.preventDefault();
 
     const newIncome = {
-      amount: amountRef.current.value,
+      amount: +amountRef.current.value,
       description: descriptionRef.current.value,
       createdAt: new Date(),
+      category:"Income",
+      color:"#2F9023"
     };
 
     try {
