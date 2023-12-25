@@ -39,7 +39,7 @@ return[
 ]
   })
 } catch (error) {
-  console.log(error)
+  throw error
 }
 }
 
@@ -60,7 +60,7 @@ return[
         ];
       });
     } catch (error) {
-      console.log(error.message);
+      throw error
     }
   };
   //  delete data
@@ -71,7 +71,7 @@ return[
       deleteDoc(docref);
       setIncome((prevState) => prevState.filter((i) => i.id !== IncomeId));
     } catch (error) {
-      console.log(error);
+      throw error
     }
   };
 
@@ -81,7 +81,7 @@ return[
       deleteDoc(docref);
       setIncome((prevState) => prevState.filter((i) => i.id !== ExpensesId));
     } catch (error) {
-      console.log(error);
+      throw error
     }
   };
 

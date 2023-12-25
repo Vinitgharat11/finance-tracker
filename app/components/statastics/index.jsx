@@ -12,7 +12,6 @@ export default function Statastics() {
 
   const allBalance = [...Expenses, ...Income];
 
-  console.log(allBalance);
   return (
     <div>
       <section className="py-6 ">

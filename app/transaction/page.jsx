@@ -7,7 +7,6 @@ const Transaction = () => {
   const { Expenses, Income } = useContext(financeContext);
 
   const [showTabs, setShowTabs] = useState([]);
-  console.log(showTabs);
 
   const allBalance = [...Expenses, ...Income];
   return (

@@ -10,7 +10,6 @@ const TransactionHistory = () => {
   const { Income ,Expenses } = useContext(financeContext);
 
 const allData = [...Income , ...Expenses]
-console.log(allData)
 
   return (
     <>

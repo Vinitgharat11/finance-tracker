@@ -8,7 +8,6 @@ const AddExpensesModal = ({ show, onClose }) => {
   const amountRef = useRef();
   const descriptionRef = useRef();
 
-console.log(Expenses)
 
   const addExpensesHandler = async (e) => {
     e.preventDefault();
@@ -25,7 +24,7 @@ console.log(Expenses)
     try {
       await addExpensesItems(newExpenses);
     } catch (error) {
-      console.log(error);
+      throw error;
     }
   };
 
@@ -35,7 +34,7 @@ console.log(Expenses)
       try {
         await removeExpensesItems(ExpensesId);
       } catch (error) {
-        console.log(error);
+        throw error;
       }
     };
   return (

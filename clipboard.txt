@@ -1,1 +1,9 @@
 finance-manager@finance-manager-408610.iam.gserviceaccount.com
+
+// deployement id
+AKfycbwRtrBZhFAKgfgmACRJs8bL1hiGgSHjo-KaxQeeKG7cvTxA-aUHw6_mhzmPhvMoq_v_mw
+
+// web app
+
+
+https://script.google.com/macros/s/AKfycbwRtrBZhFAKgfgmACRJs8bL1hiGgSHjo-KaxQeeKG7cvTxA-aUHw6_mhzmPhvMoq_v_mw/exec

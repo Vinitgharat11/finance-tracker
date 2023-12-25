@@ -28,7 +28,7 @@ const AddIncomeModel = ({ show, onClose }) => {
       descriptionRef.current.value = "";
       amountRef.current.value = "";
     } catch (error) {
-      console.log(error);
+      throw error
     }
   };
 
@@ -38,7 +38,7 @@ const AddIncomeModel = ({ show, onClose }) => {
     try {
       await removeIncomeItem(IncomeId);
     } catch (error) {
-      console.log(error);
+      throw error
     }
   };
   return (
@@ -48,6 +48,7 @@ const AddIncomeModel = ({ show, onClose }) => {
         <div className="flex flex-col gap-y-1">
           <label htmlFor="amount" className="mx-1">
             Income Amount
+            
           </label>
           <input
             name="amount"
